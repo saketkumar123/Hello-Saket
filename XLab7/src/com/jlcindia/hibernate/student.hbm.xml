@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+ "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package = "com.jlcindia.hibernate"> 
+ 
+<class name = "Student" table="mystudents1" discriminator-value="STU">
+	<id name="sid" column="sid" type="int" length="5">
+		<generator class="increment"/>
+	</id> 
+	<discriminator column="stutype" length="10"/>
+	<property name="sname" length="20"/>
+	<property name="city" length="40"/>
+	<property name="status" length="10"/>
+	<property name="totalfee" type="double" length="15"/>
+	
+	<subclass name="CurrentStudent" discriminator-value="CSTU">
+		<property name="feebal" type="double" length="10"/>
+		<property name="timing"  length="20"/>
+		<property name="branch"  length="8"/>
+		
+		<subclass name="WeekdayStudent" discriminator-value="WDSTU">
+			<property name="qualification"  length="15"/>
+			<property name="percentage"  length="14"/>
+			<property name="yop" type="int"  length="6"/>
+		</subclass>
+		
+		<subclass name="WeekendStudent" discriminator-value="WESTU">
+			<property name="wcompany" column="wecompany"  length="20"/>
+			<property name="wcemail" column="weemail"  length="30"/>
+			<property name="wctc" column="wectc" type="double"  length="10"/>
+		</subclass>
+	</subclass>
+	
+	<subclass name="OldStudent" discriminator-value="OSTU">
+		<property name="ocompany" column="oscompany"  length="20"/>
+		<property name="ocemail" column="osemail"  length="30"/>
+		<property name="octc" column="osctc" type="double"  length="10"/>
+	</subclass>
+</class>        
+ </hibernate-mapping>

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+ "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package = "com.jlcindia.hibernate"> 
+ 
+<class name = "Student" table="students" >
+	<id name="sid" column="sid" type="int" length="5">
+		<generator class="increment"/>
+	</id> 
+	<property name="sname" length="20"/>
+	<property name="city" length="40"/>
+	<property name="status" length="10"/>
+	<property name="totalfee" type="double" length="15"/>
+</class> 
+
+<class name = "CurrentStudent" table="currstudents">
+	<id name="sid" column="sid" type="int" length="5">
+		<generator class="increment"/>
+	</id> 
+	<property name="sname" length="20"/>
+	<property name="city" length="40"/>
+	<property name="status" length="10"/>
+	<property name="totalfee" type="double" length="15"/>
+	<property name="feebal" type="double" length="20"/>
+	<property name="timing" length="40"/>
+	<property name="branch" length="10"/>
+</class>  
+
+<class name = "OldStudent" table="oldstudents">
+	<id name="sid" column="sid" type="int" length="5">
+		<generator class="increment"/>
+	</id> 
+	<property name="sname" length="20"/>
+	<property name="city" length="40"/>
+	<property name="status" length="10"/>
+	<property name="totalfee" type="double" length="15"/>
+	<property name="ocompany" column="oscompany" length="20"/>
+	<property name="ocemail" column="osemail" length="25"/>
+	<property name="octc" column="osctc" length="8"/>
+</class>  
+
+<class name = "WeekdayStudent" table="weekdaystudents">
+	<id name="sid" column="sid" type="int" length="5">
+		<generator class="increment"/>
+	</id> 
+	<property name="sname" length="20"/>
+	<property name="city" length="40"/>
+	<property name="status" length="10"/>
+	<property name="totalfee" type="double" length="15"/>
+	<property name="feebal" type="double" length="10"/>
+	<property name="timing" length="15"/>
+	<property name="branch" length="6"/>
+	<property name="qualification" column="quali" length="10"/>
+	<property name="percentage" column="perce" length="5"/>
+	<property name="yop" column="yop" length="6"/>
+</class>  
+
+<class name = "WeekendStudent" table="weekendstudents">
+	<id name="sid" column="sid" type="int" length="5">
+		<generator class="increment"/>
+	</id> 
+	<property name="sname" length="20"/>
+	<property name="city" length="40"/>
+	<property name="status" length="10"/>
+	<property name="totalfee" type="double" length="15"/>
+	<property name="feebal" type="double" length="10"/>
+	<property name="timing" length="15"/>
+	<property name="branch" length="6"/>
+	<property name="wcompany" column="wecomp" length="18"/>
+	<property name="wcemail" column="weemail" length="25"/>
+	<property name="wctc" column="wectc" length="8"/>
+</class>  
+ </hibernate-mapping>

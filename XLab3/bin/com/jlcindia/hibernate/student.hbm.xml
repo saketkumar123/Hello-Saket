@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package = "com.jlcindia.hibernate"> 
+ 
+<class name = "Student" table="Students">
+	<id name="sid" column="sid" type="int">
+		<generator class="increment"/>
+	</id> 
+	<property name="sname"/>
+	<property name="dob" column="dob"/>
+	<property name="qualification" column="Quali" type="string"/>
+	
+	<array name="courses" table="courses">
+		<key column="sid"/>
+		<index column="ind" type="int"/>
+		<element column="cname" type="string"/>
+	</array>
+	
+	<list name="emails" table="emails">
+		<key column="sid"/>
+		<index column="ind" type="int"/>
+		<element column="emailID" type="string"/>
+	</list>
+	
+	<bag name="marks" table="marks">
+		<key column="sid"/>
+		<element column="marksObt" type="int"/>
+	</bag>
+	
+	<set name="phones" table="Phones">
+	<key column="sid"/>
+		<element column="phone" type="long"/>
+	</set>
+	
+	<map name="refs" table="Reference">
+		<key column="sid"/>
+		<index column="rname" type="string"/>
+		<element column="rphone" type="long"/>
+	</map>
+	
+</class>        
+ </hibernate-mapping>
