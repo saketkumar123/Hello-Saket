@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+ "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package = "com.jlcindia.hibernate"> 
+ 
+<class name = "Customer" table="mycustomers" >
+	<id name="cid" column="cid" type="int" length="5">
+		<generator class="increment"/>
+	</id> 
+	<property name="fname" column="firstname" length="10"/>
+	<property name="lname" column="lastname" length="10"/>
+	<property name="email" length="25"/>
+	<property name="phone" type="string" length="11"/>
+	<many-to-one name="address" class="Address" column="aid"/>
+</class> 
+ </hibernate-mapping>

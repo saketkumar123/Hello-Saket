@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+ "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package = "com.jlcindia.hibernate"> 
+ 
+<class name = "Request" table="myrequest" >
+	<id name="reqid" column="reqid" type="int" length="5">
+		<generator class="increment"/>
+	</id> 
+	<property name="reqDate" column="requestDate" length="20"/>
+	<property name="discription" length="40"/>
+	<property name="status" length="10"/>
+	<many-to-one name="customer" class="Customer" column="cid"/>
+</class> 
+ </hibernate-mapping>
